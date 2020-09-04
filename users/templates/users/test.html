@@ -1,0 +1,223 @@
+{% extends "blog_app/main.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+
+<!--Grid row-->
+<div class="row">
+
+<div class="col-md-8 mt-4">
+<!-- START MAIN Card -->
+<div class="card">
+<div class="card-header font-weight-bold">
+<h3>Account</h3>
+
+</div>
+<div class="card-body ml-md-2 p-sm-2 p-0 mt-3">
+
+
+
+
+<!-- border: 1px solid #000; -->
+<div class="d-flex flex-xl-row flex-lg-row flex-md-column flex-sm-column flex-column" style="width: 100%;">
+<div class="d-xl-flex d-lg-flex d-md-none d-sm-none d-none justify-content-center flex-column" style="width: 40%;">
+
+<div class="d-flex flex-column justify-content-center align-items-center vertical-align-center">
+    
+        <img class="img-thumbnail" id="id_profile_image_display" src="https://codingwithmitch.s3.amazonaws.com/static/profile_images/default_avatar.jpg" style="width: 100%;"/>
+    
+    <div class="d-flex align-items-center justify-content-center mt-1" style=" width: 100%;">
+        <a class='btn btn-primary btn-block profile-edit-btn' href="/account/edit/" style="margin-right: 0px;">Edit Profile</a>
+    </div> 
+</div>
+
+
+</div>
+<div class="d-xl-none d-lg-none d-md-flex d-sm-flex d-flex justify-content-center flex-column" style="width: 100%;" >
+    
+    <div class="d-flex  flex-column  justify-content-center align-items-center vertical-align-center">
+        
+            <img class="img-thumbnail profile-image" id="id_profile_image_display" src="https://codingwithmitch.s3.amazonaws.com/static/profile_images/default_avatar.jpg" style="width: 60%;"/>
+        
+    </div>
+    <div class="d-flex align-items-center justify-content-center mt-1" style=" width: 100%;">
+        <a class='btn btn-primary btn-block profile-edit-btn' href="/account/edit/" style="margin-right: 0px;">Edit Profile</a>
+    </div>  
+    
+</div>
+
+
+
+<div class="account-attributes d-flex justify-content-start align-items-start vertical-align-center flex-column p-xl-4 p-lg-4 p-md-3 p-sm-3 p-0">
+<div class="d-flex flex-row justify-content-between" style="width: 100%;">
+    <div class="d-flex flex-column justify-content-between ml-3">
+        <h5 class="text-dark">
+            <strong>
+                First name,
+                Last name
+            </strong>
+        </h5>
+        <h6 class="text-primary">
+            Enter a profession below
+        </h6>
+    </div>
+
+</div>
+<div class="d-flex justify-content-between flex-column mt-3 p-3" style="width: 100%;">
+
+        <!-- START USERNAME FIELD -->
+        <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+            <div class="text d-flex">
+                <span class='text-dark'>Username:</span>
+            </div>
+
+            <div class="d-flex">
+                
+                <span class="text text-primary">rucahoxavi@gmail.com</span>
+                
+            </div>
+        </div>
+        <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+            <div class="text d-flex">
+                
+            </div>
+        </div>
+        <!-- END USERNAME FIELD -->
+
+        <!-- START FIRST NAME FIELD -->
+        <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+            <div class="text d-flex">
+                <span class='text-dark'>First name:</span>
+            </div>
+
+            <div class="d-flex">
+                
+                    
+                        <span class="text text-primary">None</span>
+                    
+                
+            </div>
+        </div>
+        <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+            <div class="text d-flex">
+                
+            </div>
+        </div>
+        <!-- END FIRST NAME FIELD -->
+
+        <!-- START LAST NAME FIELD -->
+        <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+            <div class="text d-flex">
+                <span class='text-dark'>Last Name:</span>
+            </div>
+
+            <div class="d-flex">
+                
+                    
+                        <span class="text text-primary">None</span>
+                    
+                
+            </div>
+        </div>
+        <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+            <div class="text d-flex">
+                
+            </div>
+        </div>
+        <!-- END LAST NAME FIELD -->
+
+
+        <!-- START EMAIL FIELD -->
+        <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+            <div class="text d-flex">
+                <span class='text-dark'>Email:</span>
+            </div>
+
+            <div class="text d-flex">
+                
+                    <span class="text-primary">rucahoxavi@gmail.com</span>
+                
+            </div>
+        </div>
+        <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+            <div class="text d-flex">
+                
+            </div>
+        </div>
+        <!-- END EMAIL FIELD -->
+
+        <!-- START PROFESSION FIELD -->
+        <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+            <div class="text d-flex">
+                <span class='text-dark'>Profession:</span>
+            </div>
+
+            <div class="text d-flex">
+                
+                    
+                        <span class="text-primary">None</span>
+                    
+                
+            </div>
+        </div>
+        <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+            <div class="text d-flex">
+                
+            </div>
+        </div>
+        <!-- END PROFESSION FIELD -->    
+        
+
+        <!-- START WEBSITE FIELD -->
+        <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+            <div class="text d-flex">
+                <span class='text-dark'>Website:</span>
+            </div>
+
+            <div class="text d-flex">
+                
+                    
+                        <a href='//None' rel="noopener noreferrer" target='_blank'><span class="text-primary">None</span></a>
+                    
+                
+            </div>
+        </div>
+        <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+            <div class="text d-flex">
+                
+            </div>
+        </div>
+        <!-- END WEBSITE FIELD -->   
+
+        <!-- START RECEIVE EMAILS FIELD -->
+        <div class="d-flex justify-content-start flex-row my-1" style="width: 100%;">
+
+                <div class="text d-flex">
+                    
+                    <div class="checkbox">
+                        <label style="font-size: 14px;">
+                            <input type="checkbox" id="id_receive_emails" name="receive_emails" disabled
+                            checked>
+                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                            Receive emails from CodingWithMitch.com
+                        </label>
+                    </div>
+                    
+                    
+                </div>
+        </div>
+        <!-- END RECEIVE EMAILS FIELD -->
+</div>
+</div>
+</div>
+<!-- -->
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

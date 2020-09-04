@@ -1,0 +1,62 @@
+{% if user.is_authenticated %}
+<div class="card my-4" >
+  <h5 class="card-header">Leave a Comment:</h5>
+
+  <div class="card-body"> 
+    <form method="post" class="comment-form" action=".">
+          {% csrf_token %}
+          {{ comment_form }}
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>   
+  </div>
+</div>
+
+{% else %}
+<h5>Please to comment <a href="{% url 'login' %}"> Login</a></h5>
+<hr>
+{% endif %}
+
+<!-- Single Comment -->
+
+{% if not post.comments.all %}
+<h5>No Comments yet....</h5><br/>
+{% else %}
+
+ {% for comment in comments %}
+<blockquote class="blockquote">
+ <p class="mb-0"><small>{{ comment.body }}</small>  <button type="button" name="button" class="reply-btn btn btn-outline-dark btn-sm ml-2">Reply</button></p> 
+  <footer class="blockquote-footer"><small>by <cite title="Source Title">{{ comment.user|capfirst }}</cite>  <i>{{ comment.date_added|timesince }} ago</i></small> 
+  </footer>
+</blockquote>
+
+<div class="replied-comments container mt-2"style="display:none;">
+
+  {% for reply in comment.replies.all %}
+  <blockquote class="blockquote">
+    <p class="mb-0"><small><i> &rarr; {{ reply.body }}</i></small></p>
+    <footer class="blockquote-footer"><small>by <cite title="Source Title">{{ reply.user|capfirst }}</cite></small>
+  </footer>
+  </blockquote>
+  {% endfor %}
+
+    
+  <div class="form-group row">
+    <form method="post" class="reply-form" action=".">
+      {% csrf_token %}
+      <input type="hidden" name="comment_id" value="{{ comment.id }}">
+      {{ comment_form.as_p }}
+      {% if request.user.is_authenticated %}
+        <input type="submit" value="Submit" class="btn btn-outline-success">
+      {% else %}
+        <input type="submit" value="Submit" class="btn btn-outline-success" disabled>
+      {% endif %}
+    </form>
+  </div>
+
+</div>
+<hr>
+{% endfor %}
+
+
+{% endif %}

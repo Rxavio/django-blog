@@ -1,0 +1,32 @@
+{% extends 'blog_app/main.html' %}
+{% load static %}
+{% block content %}
+<div class="col-md-8">
+  <!-- Blog Post -->
+  {% for p in favourite_posts %}  
+  <div class="card mb-4">
+    <!-- <img class="img-circle" src="{{post.imageURL}}" /> -->
+   
+    <div class="card-body">
+      <img class="img-circle" src="{{ p.author.profile.image.url }}">
+      <h4 class="card-title">{{ p.title }}</h4>
+      <img class="card-img-top" src="{{p.imageURL}}" alt="Card image cap">
+      <p class="card-text">{{ p.content }}</p>
+      <a href="{% url 'post-detail' pk=post.pk %}" class="btn btn-primary">Read More &rarr;</a>     
+    </div>
+    <div class="card-footer text-muted">
+      Posted  {{ p.date_posted|timesince }} <i>ago</i> by
+      <a href="{% url 'user-posts' post.author.username %}">{{ p.author }}</a>
+    </div>
+  </div>
+  
+  {% empty %}
+  <div class="container-fluid">
+    <center><h5>Oops,No Favourite Post Found  </h5></center><br/><br/>
+
+  </div>
+
+{% endfor %}
+  
+</div>
+{% endblock content %}

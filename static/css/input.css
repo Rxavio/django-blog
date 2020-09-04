@@ -1,0 +1,53 @@
+.col-md-12 input{
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 8px;
+    border-radius: 4px;
+    outline: 0;
+  
+   
+  }
+  .col-md-12 textarea{
+    width: 100%;
+    height: 200px;
+    margin: 0 0 20px;
+    border-radius: 4px;
+    outline: 0;
+   
+  }
+  .col-md-12 button{
+    width: 20%;
+    cursor: pointer;
+    border-radius: 4px;
+    outline: 0;
+  
+}
+
+.profile-pic{
+  max-width: 200px;
+  max-height:200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid #e1e1e1;
+}
+.img-thumbnail{
+  max-width: 200px;
+  max-height:200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid #e1e1e1;
+}
+.img-circle{
+  max-width: 30px;
+  max-height: 30px;
+  /* margin: 0 auto; */
+  border-radius: 50%;
+  border: 1px solid #e1e1e1; 
+}
+.card-title{
+  margin-top: -30px;
+  margin-left: 35px;
+}
+
+
+  

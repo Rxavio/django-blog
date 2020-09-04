@@ -1,0 +1,79 @@
+{% extends 'blog_app/main.html' %}
+{% load static %}
+{% block content %}
+<div class="col-md-8">
+    <!-- Page Heading-->
+    <div class="card-header"><h3>All Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h3></div><br/>
+ 
+  <!-- Blog Post -->
+
+  {% for post in posts %}  
+  <div class="card mb-4">
+    <!-- <img class="img-circle" src="{{post.imageURL}}" /> -->
+    <div class="card-body">
+      <img class="img-circle" src="{{ post.author.profile.image.url }}">
+      <h4 class="card-title">{{ post.title }}</h4>
+      <img class="card-img-top" src="{{post.imageURL}}" alt="Card image cap">
+      <p class="card-text">{{ post.content }}</p>
+      <a href="{% url 'post-detail' post.id %}" class="btn btn-primary">Read More &rarr;</a>     
+    </div>
+    <div class="card-footer text-muted">
+      Posted  {{ post.date_posted|timesince }} <i>ago</i> 
+      by <a href="">{{ post.author }}</a>
+    </div>
+  </div>
+  {% endfor %}
+
+
+
+  
+<!-- Pagination -->
+<ul class="pagination justify-content-center mb-4">
+
+  <!-- <li class="page-item">
+    <a class="page-link" href="#">&larr; Older</a>
+  </li>
+  <li class="page-item disabled">
+    <a class="page-link" href="#">Newer &rarr;</a>
+  </li> -->
+
+
+  {% if is_paginated %}
+
+{% if page_obj.has_previous %}
+<a class="btn btn-outline-primary mb-4" href="?page=1">First</a>
+<a class="btn btn-outline-primary mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+{% if page_obj.number == num %}
+  <a class="btn btn-primary mb-4" href="?page={{ num }}">{{ num }}</a>
+{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+  <a class="btn btn-primary-info mb-4" href="?page={{ num }}">{{ num }}</a>
+{% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+<a class="btn btn-outline-primary mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+<a class="btn btn-outline-primary mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+{% endif %}
+
+{% endif %}
+
+</ul>
+
+</div>
+
+
+
+
+
+
+
+      <!-- Sidebar Widgets Column -->
+     <!-- include sidebar -->
+
+      {%  include 'blog_app/sidebar.html' %}
+
+
+{% endblock content %}

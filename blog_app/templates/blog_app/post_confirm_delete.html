@@ -1,0 +1,21 @@
+{% extends 'blog_app/main.html' %}
+{% load static %}
+{% block content %}
+<center>
+<div class="col-lg-8">
+    <form method="POST">
+        {% csrf_token %}
+            <h3>Are you sure you want to delete the Article "{{ object.title }}"</h3>
+            <button type="submit"class="btn btn-info">Yes, Delete</button>
+            <a href="{% url 'detail' post.id %}"class="btn btn-warning">Cancel</a>
+        </div>
+        </center>
+    </form>
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+       
+
+  {% endblock content %}
+                  

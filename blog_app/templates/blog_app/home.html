@@ -1,0 +1,54 @@
+{% extends 'blog_app/main.html' %}
+{% load static %}
+{% block content %}
+<div class="col-md-8">
+  <br>
+  <!-- Blog Post -->
+  {% for post in posts %}  
+  <div class="card mb-4">  
+    <div class="card-body">
+      <img class="img-circle" src="{{ post.author.profile.image.url }}">
+      <h4 class="card-title">{{ post.title }}</h4>
+      <img class="card-img-top" src="{{post.imageURL}}" alt="Card image cap">
+      <p class="card-text">{{ post.content }}</p>
+      <a href="{% url 'post-detail' pk=post.pk %}" class="btn btn-primary">Read More &rarr;</a>     
+    </div>
+    <div class="card-footer text-muted">
+      Posted  {{ post.date_posted|timesince }} <i>ago</i> by
+      <a href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+    </div>
+  </div>
+  
+  {% empty %}
+  <div class="container-fluid">
+    <!-- <center><h5>Oops,Post <u><i>"{{ request.GET.q }}"</i></u>Not Found In our Posts </h5></center><br/><br/> -->
+    <center><h5>Oops,Post Not Found In our Posts </h5></center><br/><br/>
+
+  </div>
+
+{% endfor %}
+  <!-- Pagination -->
+  <ul class="pagination justify-content-center mb-4">
+  <div class="section-inner clearfix">
+       <p>
+          {% if posts.has_previous %}
+              <a class="btn btn-outline-primary mb-4"href="?page={{ posts.previous_page_number }}">&lt; Prev</a> |
+          {% endif %}
+
+          {% if posts.has_next %}
+              <a class="btn btn-outline-primary mb-4"href="?page={{ posts.next_page_number }}">Next &gt;</a>
+          {% endif %}
+
+          <span class="btn btn-primary mb-4">Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+      </p>
+  </div> 
+  </ul>
+</div>
+
+        <!-- Sidebar Widgets Column -->
+       <!-- include sidebar -->
+
+        {%  include 'blog_app/sidebar.html' %}
+
+
+{% endblock content %}

@@ -1,0 +1,125 @@
+{% extends 'blog_app/main.html' %}
+{% load static %}
+{% block content %}
+<div class="col-md-8">
+
+  <h1 class="my-4">
+    <!-- Page Heading
+    <small>Secondary Text</small> -->
+  </h1>
+  <br>
+
+  <!-- Blog Post -->
+  {% if not post.published.all %}
+  <center><h5>No Post Published yet....</h5></center><br/><br/>
+  {% else %}
+
+  {% for post in posts %}  
+  <div class="card mb-4">
+    <!-- <img class="img-circle" src="{{post.imageURL}}" /> -->
+   
+    <div class="card-body">
+      <img class="img-circle" src="{{ post.author.profile.image.url }}">
+      <h4 class="card-title">{{ post.title }}</h4>
+      <img class="card-img-top" src="{{post.imageURL}}" alt="Card image cap">
+      <p class="card-text">{{ post.content }}</p>
+      <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Read More &rarr;</a>     
+    </div>
+    <div class="card-footer text-muted">
+      Posted  {{ post.date_posted|timesince }} <i>ago</i> by
+      <a href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+    </div>
+  </div>
+  
+  {% empty %}
+  <div class="container-fluid">
+    <center><h5>Oops,Post <u><i>"{{ request.GET.q }}"</i></u>Not Found In our Posts </h5></center><br/><br/>
+
+  </div>
+
+{% endfor %}
+
+{% endif %}
+
+
+
+  
+
+  <!-- Pagination -->
+  <ul class="pagination justify-content-center mb-4">
+
+    <!-- <li class="page-item">
+      <a class="page-link" href="#">&larr; Older</a>
+    </li>
+    <li class="page-item disabled">
+      <a class="page-link" href="#">Newer &rarr;</a>
+    </li> -->
+
+
+<!-- {% if is_paginated %}
+
+{% if page_obj.has_previous %}
+  <a class="btn btn-outline-primary mb-4" href="?page=1">First</a>
+  <a class="btn btn-outline-primary mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+  {% if page_obj.number == num %}
+    <a class="btn btn-primary mb-4" href="?page={{ num }}">{{ num }}</a>
+  {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+    <a class="btn btn-primary-info mb-4" href="?page={{ num }}">{{ num }}</a>
+  {% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+  <a class="btn btn-outline-primary mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+  <a class="btn btn-outline-primary mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+{% endif %}
+
+{% endif %}  -->
+
+<!-- <div class="pagination"> -->
+  <div class="section-inner clearfix">
+
+    <!-- <form method="get">
+      {{myFilter.form}}
+
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form> -->
+    <!-- <form method='GET'>
+      <input type='text' name='q' value='{{ request.GET.q }}'>
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form> -->
+
+       <p>
+          {% if posts.has_previous %}
+              <a class="btn btn-outline-primary mb-4"href="?page={{ posts.previous_page_number }}">&lt; Prev</a> |
+          {% endif %}
+
+          {% if posts.has_next %}
+              <a class="btn btn-outline-primary mb-4"href="?page={{ posts.next_page_number }}">Next &gt;</a>
+          {% endif %}
+
+          <span class="btn btn-primary mb-4">Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+      </p>
+  </div> 
+<!-- </div> -->
+
+
+  </ul>
+
+</div>
+
+
+
+
+
+
+
+        <!-- Sidebar Widgets Column -->
+       <!-- include sidebar -->
+
+        {%  include 'blog_app/sidebar.html' %}
+
+
+{% endblock content %}

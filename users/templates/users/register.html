@@ -1,0 +1,71 @@
+{% extends "blog_app/main.html" %}
+{% block content %}
+        <div class="container">
+          <div class="card card-register mx-auto mt-5">
+            <div class="card-header">Register an Account</div>
+            <div class="card-body">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label for="exampleInputName">First name</label><br>
+                      <input class="form-control" name="first_name" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                      <!-- {{form.first_name}} -->
+                    </div>
+                    <div class="col-md-6">
+                      <label for="exampleInputLastName">Last name</label><br>
+                      <input class="form-control" name="last_name"id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                      <!-- {{form.last_name}} -->
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="form-row">
+                      <div class="col-md-6">
+                        <label for="exampleInputName">Username</label><br>
+                        <input class="form-control"name="username" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter username">
+                        <!-- {{form.username}} -->
+                      </div>
+                      <div class="col-md-6">
+                        <label for="exampleInputLastName">Email address</label><br>
+                        <input class="form-control"name="email" id="exampleInputLastName" type="email" aria-describedby="nameHelp" placeholder="Enter Email">
+                        <!-- {{form.email}} -->
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label for="exampleInputPassword1">Password</label><br>
+                      <input class="form-control"name="password1" id="exampleInputPassword1" type="password" placeholder="Password">
+                      <!-- {{form.password1}} -->
+                    </div>
+                    <div class="col-md-6">
+                      <label for="exampleConfirmPassword">Confirm password</label><br>
+                      <input class="form-control"name="password2" id="exampleConfirmPassword" type="password" placeholder="Confirm password">
+                      <!-- {{form.password2}} -->
+                    </div>
+                  </div>
+                </div>
+                <!-- <a class="btn btn-primary btn-block" href="login.html">Register</a> -->
+                <div class="d-flex justify-content-center mt-3 login_container">
+                    <input class="btn btn-primary" type="submit" value="Register">
+                  </div>
+            
+              </form>
+              {{form.errors}}
+              <div class="text-center">
+                <a class="d-block small mt-3" href="{% url 'login' %}">Login Page</a><br>
+                <a class="d-block small" href="#">Forgot Password?</a>
+              </div>
+            </div>
+          </div>
+          <br><br><br><br>
+        </div>
+
+
+       
+{% endblock content %}

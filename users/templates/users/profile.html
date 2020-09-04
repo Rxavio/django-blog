@@ -1,0 +1,157 @@
+{% extends "blog_app/main.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row my-2">
+      <div class="col-lg-8 order-lg-2">
+          <ul class="nav nav-tabs">
+              <li class="nav-item">
+                  <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+              </li>
+          </ul>
+          <div class="tab-content py-4">
+              <div class="tab-pane active" id="profile">
+                    <!-- START MAIN Card -->
+                    <div class="card">
+                    <div class="card-header font-weight-bold">
+                    <h3>Account</h3>
+                    
+                    </div>
+                    <div class="card-body ml-md-2 p-sm-2 p-0 mt-3">
+                    
+                    
+                    
+                    
+                    <!-- border: 1px solid #000; -->
+                    <div class="d-flex flex-xl-row flex-lg-row flex-md-column flex-sm-column flex-column" style="width: 100%;">
+                    <div class="d-xl-flex d-lg-flex d-md-none d-sm-none d-none justify-content-center flex-column" style="width: 40%;">
+                    
+                    <div class="d-flex flex-column justify-content-center align-items-center vertical-align-center">
+                        
+                            <img class="img-thumbnail" id="id_profile_image_display" src="{{ user.profile.image.url }}" style="width: 100%;"/>
+                        
+                        <!-- <div class="d-flex align-items-center justify-content-center mt-1" style=" width: 100%;">
+                            <a class='btn btn-primary btn-block profile-edit-btn' href="/account/edit/" style="margin-right: 0px;">Edit Profile</a>
+                        </div>  -->
+                    </div>
+                    
+                    
+                    </div>
+                    <div class="d-xl-none d-lg-none d-md-flex d-sm-flex d-flex justify-content-center flex-column" style="width: 100%;" >
+                        
+                        <div class="d-flex  flex-column  justify-content-center align-items-center vertical-align-center">
+                            
+                                <img class="img-thumbnail profile-image" id="id_profile_image_display" src="{{ user.profile.image.url }}" style="width: 60%;"/>
+                            
+                        </div>
+                        <!-- <div class="d-flex align-items-center justify-content-center mt-1" style=" width: 100%;">
+                            <a class='btn btn-primary btn-block profile-edit-btn' href="/account/edit/" style="margin-right: 0px;">Edit Profile</a>
+                        </div>   -->
+                        
+                    </div>
+                    
+                    
+                    
+                    <div class="account-attributes d-flex justify-content-start align-items-start vertical-align-center flex-column p-xl-4 p-lg-4 p-md-3 p-sm-3 p-0">
+                  
+                    <div class="d-flex justify-content-between flex-column mt-3 p-3" style="width: 100%;">
+
+                            <!-- START FIRST NAME FIELD -->
+                            <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+                                <div class="text d-flex">
+                                    <span class='text-dark'>First name:</span>
+                                </div>
+                                <div class="d-flex">                                        
+                                 <span class="text text-primary">{{ user.first_name }}</span>    
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+                                <div class="text d-flex">  
+                                </div>
+                            </div>
+                            <!-- END FIRST NAME FIELD -->
+                    
+                            <!-- START LAST NAME FIELD -->
+                            <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+                                <div class="text d-flex">
+                                    <span class='text-dark'>Last Name:</span>
+                                </div>
+                                <div class="d-flex">
+                                <span class="text text-primary">{{ user.last_name }}</span>       
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+                                <div class="text d-flex">  
+                                </div>
+                            </div>
+                            <!-- END LAST NAME FIELD -->
+
+                            <!-- START USERNAME FIELD -->
+                            <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+                              <div class="text d-flex">
+                                  <span class='text-dark'>Username:</span>
+                              </div>
+                              <div class="d-flex">
+                                  <span class="text text-primary">{{ user.username }}</span>  
+                              </div>
+                          </div>
+                          <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+                              <div class="text d-flex">  
+                              </div>
+                          </div>
+                          <!-- END USERNAME FIELD -->
+
+                            <!-- START EMAIL FIELD -->
+                            <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
+                                <div class="text d-flex">
+                                    <span class='text-dark'>Email: </span>
+                                </div>
+                                <div class="text d-flex">      
+                             <span class="text-primary">{{ user.email }}</span>    
+                                </div>
+                            </div>
+
+                            <!-- <div class="d-flex justify-content-between flex-row" style="width: 100%;">
+                                <div class="text d-flex">   
+                                </div>
+                            </div> -->
+                            <!-- END EMAIL FIELD -->
+
+                            <!-- <div class="d-flex align-items-center justify-content-center mt-1" style=" width: 100%;">
+                              <a class='btn btn-primary btn-block profile-edit-btn' href="/account/edit/" style="margin-right: 0px;">Edit Profile</a>
+                          </div>  -->
+                    
+              
+                    </div>
+                    </div>
+                    </div>
+                    <!-- -->
+                    
+                    </div>
+                    </div>
+                   
+                  <!--/row-->
+              </div>
+             
+              <div class="tab-pane" id="edit">
+                <div class="card card-register mx-auto mt-5">
+                  <div class="col-md-12">
+                  <form role="form"method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ u_form}}
+                            {{ p_form}}
+               <input type="submit" class="btn btn-primary" value="Save Changes">    
+                  </form>
+                </div>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br><br><br><br><br><br><br><br>
+</div>
+{% endblock content %}
