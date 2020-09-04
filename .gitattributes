@@ -1,1 +1,1 @@
-*.javascript linguist-language=django
+*.js linguist-language=Python
