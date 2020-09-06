@@ -32,8 +32,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = '*5cx-j$q+52zldh1&r@d!9p8tnz@$#*hqw_^arrd1&#4n_mm7k'
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = '*5cx-j$q+52zldh1&r@d!9p8tnz@$#*hqw_^arrd1&#4n_mm7k'
+#SECRET_KEY = env('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_filters',
     'social_django',
+    'embed_video',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -105,23 +107,23 @@ WSGI_APPLICATION = 'blog_pro.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': env('DB_ENGINE'),
-        'NAME': env('DB_NAME'),
-        'USER': 'postgres',
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST')
-     }
-   }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': env('DB_ENGINE'),
+#         'NAME': env('DB_NAME'),
+#         'USER': 'postgres',
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': env('DB_HOST')
+#      }
+#    }
 
 
 # Password validation

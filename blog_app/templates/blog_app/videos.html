@@ -1,0 +1,20 @@
+{% extends 'blog_app/main.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block content %}
+<div class="col-md-8">
+    <br/>
+     {% for i in obj %}
+ <!-- <div class="embed-responsive embed-responsive-1by1">
+<div class="embed-responsive embed-responsive-4by3">
+<div class="embed-responsive embed-responsive-21by9"> -->
+ <div class="embed-responsive embed-responsive-16by9">
+        {% video i.video %}
+      </div>       
+     {% endfor %}  
+</div>
+       <!-- include sidebar -->
+
+{%  include 'blog_app/sidebar.html' %}
+
+{% endblock content %}

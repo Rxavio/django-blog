@@ -177,4 +177,9 @@ def like_post(request):
         html = render_to_string('blog_app/like_section.html', context, request=request)
         return JsonResponse({'form': html})
     
-   
+def video(request):
+    obj= Video.objects.all()
+    context= {'obj': obj}
+        
+      
+    return render(request, 'blog_app/videos.html', context)   

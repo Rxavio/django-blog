@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse
 from PIL import Image
+from embed_video.fields import EmbedVideoField
 
 
 
@@ -76,3 +77,8 @@ class Comment(models.Model):
 def __str__(self):
 
 		return '%s-%s' % (self.post.title, self.name)
+
+
+
+class Video(models.Model):
+    video = EmbedVideoField()  # same like models.URLField()

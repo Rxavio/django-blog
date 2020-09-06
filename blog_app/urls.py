@@ -10,6 +10,7 @@ from .views import (
         
 )
 from . import views
+#from .views import video
 
 urlpatterns = [
     # path('', HomeList.as_view(), name='home'),
@@ -29,6 +30,9 @@ urlpatterns = [
 
     path('favourites/', views.post_favourite_list, name="post_favourite_list"),
     path('post/<int:pk>/favourite_post/', views.favourite_post, name="favourite_post"),
+
+    #path('how-it-works/', video)
+    path('how-it-works/', views.video, name="how-it-works"),
  
     
 ]
