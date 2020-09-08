@@ -84,11 +84,10 @@
         <!-- Blog Entries Column -->
 
 
-                    
+              
+        {% include 'blog_app/messages.html' %}
+
             {% block content %}
-
-
-
 
             {% endblock content %}
        
@@ -145,6 +144,14 @@
         //     $('.alert').slideUp(2000);
         //   }, 5000);
         // });
+
+        //messages
+        
+        setTimeout(function(){
+        if ($('#msg').length > 0) {
+         $('#msg').remove();
+       }
+      }, 3000)
 
 
         $(document).on('click', '#like', function(event){
