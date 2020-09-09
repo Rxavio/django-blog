@@ -33,6 +33,8 @@ urlpatterns = [
 
     #path('how-it-works/', video)
     path('how-it-works/', views.video, name="how-it-works"),
+
+    path('file/', views.file, name="file"),
  
     
 ]

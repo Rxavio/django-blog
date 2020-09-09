@@ -82,3 +82,12 @@ def __str__(self):
 
 class Video(models.Model):
     video = EmbedVideoField()  # same like models.URLField()
+
+
+
+class FileAdmin(models.Model):
+		fileupload = models.FileField(upload_to='files')  
+		title= models.CharField(max_length=50)
+
+		def __str__(self):
+			return self.fileupload

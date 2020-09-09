@@ -1,0 +1,17 @@
+{% extends 'blog_app/main.html' %}
+{% load static %}
+{% block content %}
+<div class="col-md-8">
+    <br/>
+     {% for post in file %}
+ <div class="embed-responsive embed-responsive-16by9">
+        <h2>{{post.fileupload}}</h2>
+        <a href="{{post.fileupload.url}}" download="{{post.fileupload.url}}">Download</a>
+      </div>       
+     {% endfor %}  
+</div>
+       <!-- include sidebar -->
+
+{%  include 'blog_app/sidebar.html' %}
+
+{% endblock content %}

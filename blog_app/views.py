@@ -20,7 +20,6 @@ from django.template.loader import render_to_string
 
 
 def home(request):
-    # posts= Post.objects.all().order_by('-date_posted')
     posts= Post.published.all().order_by('-date_posted')
     paginator=Paginator(posts,5)
     page=request.GET.get('page')
@@ -28,7 +27,6 @@ def home(request):
     
     query=request.GET.get('q')
     if query:
-        # posts = Post.objects.filter(
         posts = Post.published.filter(
         Q(title__icontains=query)|
         Q(author__username=query)|
@@ -183,3 +181,18 @@ def video(request):
         
       
     return render(request, 'blog_app/videos.html', context)   
+
+
+
+def file(request):
+    context= {'file': FileAdmin.objects.all()} 
+    return render(request, 'blog_app/file.html', context)  
+
+def download(request,path):
+    file_path=os.path.join(settings.MEDIA_ROOT,path)
+    if os.path.exists(file_path):
+        with open(file_path,'rb')as fh:
+            response=HttpResponse(fh.read(),content_type="application/fileupload")
+            response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
+            return response      
+    raise Http404      
