@@ -44,6 +44,14 @@
   border-radius: 50%;
   border: 1px solid #e1e1e1; 
 }
+
+.icon-circle{
+  max-width: 30px;
+  max-height: 30px;
+
+  border-radius: 50%;
+  /* border: 1px solid #e1e1e1;  */
+}
 .card-title{
   margin-top: -30px;
   margin-left: 35px;
