@@ -28,21 +28,7 @@
 
 {% endfor %}
   <!-- Pagination -->
-  <ul class="pagination justify-content-center mb-4">
-  <div class="section-inner clearfix">
-       <p>
-          {% if posts.has_previous %}
-              <a class="btn btn-outline-primary mb-4"href="?page={{ posts.previous_page_number }}">&lt; Prev</a> |
-          {% endif %}
-
-          {% if posts.has_next %}
-              <a class="btn btn-outline-primary mb-4"href="?page={{ posts.next_page_number }}">Next &gt;</a>
-          {% endif %}
-
-          <span class="btn btn-primary mb-4">Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
-      </p>
-  </div> 
-  </ul>
+  {%  include 'blog_app/pagination.html' %}
 </div>
 
         <!-- Sidebar Widgets Column -->

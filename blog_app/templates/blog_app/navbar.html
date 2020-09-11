@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Home
+            <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home"></i> Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -16,11 +16,11 @@
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'new-post' %}">New post</a>
+            <a class="nav-link" href="{% url 'new-post' %}"><i class="fas fa-user-edit"></i> New post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'profile' %}">{{ request.user|capfirst }}
-                <img src="{{ request.user.profile.image.url }}" alt="" class="icon-circle">
+            <a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-user"></i> {{ request.user|capfirst }}
+                <!-- <img src="{{ request.user.profile.image.url }}" alt="" class="icon-circle"> -->
             </a>
           </li>
 
@@ -30,18 +30,19 @@
        
 
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{% url 'file' %}">File</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-sign-in-alt"></i> Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-user-tie"></i> Login</a>
+          </li>
+         
           {% endif %}
 
 
