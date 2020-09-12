@@ -18,7 +18,8 @@
 {% endif %}
 
 <!-- Single Comment -->
-
+{{ post.comments.count }} Comments{{ post.comments|pluralize }}
+<hr>
 {% if not post.comments.all %}
 <h5>No Comments yet....</h5><br/>
 {% else %}
