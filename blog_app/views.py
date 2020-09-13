@@ -45,7 +45,7 @@ def home(request):
 class NewPostView(LoginRequiredMixin,SuccessMessageMixin, CreateView):
     model = Post
     success_url = '/'
-    success_message = "Post successfully added"
+    #success_message = "Post successfully added"
     fields = ['title', 'content','image']
 
     def form_valid(self, form):
@@ -67,7 +67,7 @@ class PostDelView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin,SuccessMessageMixin, UpdateView):
     model = Post
     success_url = '/'
-    success_message = "Article successfully Updated"
+    #success_message = "Article successfully Updated"
     fields = ['title', 'content','image']
 
     def form_valid(self, form):
