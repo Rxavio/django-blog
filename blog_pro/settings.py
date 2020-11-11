@@ -12,18 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-import environ
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-# reading .env file
-environ.Env.read_env()
-
-# False if not in os.environ
-DEBUG = env('DEBUG')
-
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,9 +25,12 @@ SECRET_KEY = '*5cx-j$q+52zldh1&r@d!9p8tnz@$#*hqw_^arrd1&#4n_mm7k'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
+DEBUG = False
+
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['142.93.199.196']
 
 
 # Application definition
@@ -66,6 +57,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -107,13 +99,23 @@ WSGI_APPLICATION = 'blog_pro.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'remarkabledb',
+        'USER': 'remarkableuser',
+        'PASSWORD': '18021994muXA',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
-
 
 # DATABASES = {
 #     'default': {
